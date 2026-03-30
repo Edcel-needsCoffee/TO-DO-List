@@ -23,11 +23,21 @@ taskInputBtn.addEventListener('click', addBtn);
 
 function createTask(task){
  
-    const li = document.createElement('li')
+    const list = document.createElement('li')
 
-    li.textContent = task;
+    list.textContent = task;
 
-    listItem.appendChild(li);
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'delete';
+    deleteButton.className = 'deleteTask';
+
+    deleteButton.addEventListener('click', function(){
+        listItem.removeChild(list);
+        alert('A Task had been removed');
+    })
+    
+    list.appendChild(deleteButton);
+    listItem.appendChild(list);
 
 }
 
